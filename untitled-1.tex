@@ -14,11 +14,11 @@
 \author{Mateusz Banaszek \and Szymon Kozakiewicz \and Joanna Świętosławska}
 \begin{document}
 \maketitle
-\section{Zespól i jego zadania}
+\section{Zespół i jego zadania}
 Zespół projektowy składał się z 3 osób.  Podział obowiązków był następujący:\\
 Mateusz Banaszek - nadzorowanie postepów projektu, testy, dokumentacja,\\
 Szymon Kozakiewicz - programowanie I,\\
-Jaonna świetosławka - programowanie II.
+Jaonna Świętosławska - programowanie II.
 
 
 \begin{figure}
@@ -72,7 +72,7 @@ Program ma za zadanie udostępniać interfejs do komunikacji z full nodem sieci 
 \end{itemize}
 \subsection{Uruchomienie programu}
 \label{chap:1}
-By uruchomić program należy wywołać polecenie $$python3 Console.py$$
+By uruchomić program należy wywołać polecenie \textit{python3 Console.py}.
 Aplikacja była testowana dla pythona w wersji 3.6 na innych wersjach może on nie działać poprawnie.
 \subsection{Opis działania}
 
@@ -185,7 +185,7 @@ hash stopu                               & 32                    & Hash składaj
 \end{table}
 
 \subsubsection{Getdata}
-Wiadomość getblocks składa się z pól przedstawionych w tabeli \ref{tab:getdata}. Wysłanie tej wiadomości jest równoznaczne z~zarządaniem odpowiedzi w~postaci wiadomości tx. Do~wysłania wiadomości getdata potrzebny jest hash transakcji, której szczegóły chcemy otrzymać w~odpowiedzi.
+Wiadomość getblocks składa się z pól przedstawionych w tabeli \ref{tab:getdata}. Wysłanie tej wiadomości jest równoznaczne z~zarządaniem odpowiedzi w~postaci wiadomości tx. Do~wysłania wiadomości getdata potrzebny jest hash transakcji, której szczegóły chcemy otrzymać w~odpowiedzi. Hashe transakcji można~uzyskać poprzez wysłanie wiadomości getblocks.
 
 \begin{table}[]
 \centering
@@ -244,6 +244,8 @@ Przedstawiono następujące dogramy sekwencji:
 \begin{itemize}
 \item nawiązywanie połączenia (version, verack) grafika \ref{zdj:sek:version}
 \item Uzyskiwania adresów ip z węzła(getaddr, addr) na grafice \ref{zdj:sek:getaddr}
+\item pobierania hashy transakcji (getblocks), grafika \ref{zdj:sek:getblocks}
+\item pobieranie szczegółów transakcji (getdata), garfika \ref{zdj:sek:getaddr}
 \end{itemize}
 
 \begin{figure}
@@ -261,6 +263,21 @@ Przedstawiono następujące dogramy sekwencji:
 \centering
 \includegraphics[width=\textwidth]{zdjecia/sekwencjiVersion}
 \end{figure}
+
+\begin{figure}
+\caption{Diagram sekwencji dla getblocks. Pominięto nawiązywanie połączenia}
+\label{zdj:sek:getblocks}
+\centering
+\includegraphics[width=\textwidth]{zdjecia/sekwencjiGetblocks}
+\end{figure}
+
+\begin{figure}
+\caption{Diagram sekwencji dla getdata. Pominięto nawiązywanie połączenia}
+\label{zdj:sek:getdata}
+\centering
+\includegraphics[width=\textwidth]{zdjecia/sekwencjiGetdata}
+\end{figure}
+
 \section{FAQ}
 \begin{itemize}
 \item Dlaczego program nie działa?\\
