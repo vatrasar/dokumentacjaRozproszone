@@ -72,7 +72,7 @@ Aplikacja została stworzona przy użyciu języka \textit{python} w wersji 3.6. 
 \subsubsection{Nagłówek wiadomości}
 Każda wiadomość protokołu bitcoin musi rozpoczynać się od nagłówka. Składa się on z pól przedstawionych w tabeli \ref{tab:naglowek}
 \subsubsection{Adres}
-w wielu wiadomościach trzeba wysłać adres ip. Zawartość części wiadomości z adresem zaprezentowano w tabeli \ref{tab:addrInet}.
+W wielu wiadomościach trzeba wysłać adres ip. Zawartość części wiadomości z adresem zaprezentowano w tabeli \ref{tab:addrInet}.
 \begin{table}[]
 \centering
 \begin{tabular}{|l|c|c|}
@@ -150,5 +150,26 @@ Wykorzystywane w celu wyszukiwania adresów węzłów. W tym celu do wyszukiwani
 
 \subsubsection{TCP}
 \subsubsection{UDP}
+\subsection{Diagramy sekwencji}
+Przedstawiono następujące dogramy sekwencji:
+\begin{itemize}
+\item nawiązywanie połączenia (version, verack) grafika \ref{zdj:sek:version}
+\item Uzyskiwania adresów ip z węzła(getaddr, addr) na grafice \ref{zdj:sek:getaddr}
+\end{itemize}
 
+\begin{figure}
+
+\caption{Diagram sekwencji dla getaddr. Pominięto nawiązywanie połączenia(tcp, version,verack)}
+\label{zdj:sek:getaddr}
+\centering
+\includegraphics[width=\textwidth]{zdjecia/sekwencjiGetAddr}
+\end{figure}
+
+\begin{figure}
+
+\caption{Diagram sekwencji dla nawiązywania połączenia(version,verack).}
+\label{zdj:sek:version}
+\centering
+\includegraphics[width=\textwidth]{zdjecia/sekwencjiVersion}
+\end{figure}
 \end{document}
