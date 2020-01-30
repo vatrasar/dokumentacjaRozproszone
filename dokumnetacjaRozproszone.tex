@@ -59,7 +59,7 @@ Po uruchomieniu programu do konsoli można wpisać następujące polecenia:
 \item \textit{getaddr}: Wysyła wiadomość getaddr. Następnie odbiera wiadomość zwrotną addr która zawiera jeden lub więcej adresów ip węzłów
 \item \textit{addr}: wysyła wiadomość addr do wybranego węzła
 \item \textit{getblocks}:Wysyła wiadomośc getblocks do wybranego węzła. Następnie odbierana jest wiadomość inv, która zawiera informacje o blokach.
-\item \textit{getdata}:  Wysyła wiadomość getdata do wybranego węzła. Następnie odbiera zwrotną wiadomość tx w, której zawiera informacje o transakcjach w bloku.
+\item \textit{getdata}:  Wysyła wiadomość getdata do wybranego węzła. Następnie odbiera zwrotną wiadomość tx, w której zawarte są informacje o transakcjach w bloku.
 \item \textit{inv}: Wysyła wiadomość inv
 \end{itemize}
 
@@ -141,6 +141,55 @@ addr\_list                                & ?                      & \begin{tabu
 \label{tab:addr}
 \end{table}
 
+
+\subsubsection{Getblocks}
+Wiadomość getblocks składa się z pól przedstawionych w tabeli \ref{tab:getblocks}. Wysłanie tej wiadomości jest równoznaczne z~zarządaniem odpowiedzi w~postaci wiadomości inv.
+
+\begin{table}[]
+\centering
+\begin{tabular}{|l|c|c|}
+\hline
+\multicolumn{1}{|c|}{\textbf{nazwa pola}} & \textbf{liczba bajtów} & \textbf{Opis}                                                                                                                \\ \hline
+version                                   & 4                      & \begin{tabular}[c]{@{}c@{}}Wskazuje wersje protokołu używaną\\ przez wysyłającego. W naszym wypadku \\ było to 60002\end{tabular} \\ \hline
+liczba hashy                               & 1+                     & -                                                                                                                                 \\ \hline
+hashe nagłówków bloków                                & 32*liczba hashy                      &                                                                                               \\ \hline
+hash stopu                               & 32                    & Hash składający się z~samych zer                                                                                                       \\ \hline
+\end{tabular}
+\caption{Zawartość wiadomości getblocks}
+\label{tab:getblocks}
+\end{table}
+
+\subsubsection{Getdata}
+Wiadomość getblocks składa się z pól przedstawionych w tabeli \ref{tab:getdata}. Wysłanie tej wiadomości jest równoznaczne z~zarządaniem odpowiedzi w~postaci wiadomości tx. Do~wysłania wiadomości getdata potrzebny jest hash transakcji, której szczegóły chcemy otrzymać w~odpowiedzi.
+
+\begin{table}[]
+\centering
+\begin{tabular}{|l|c|c|}
+\hline
+\multicolumn{1}{|c|}{\textbf{nazwa pola}} & \textbf{liczba bajtów} & \textbf{Opis}                                                                                                                \\ \hline
+liczba par typ+hash                               & 1+                     & -                                                                                                                                 \\ \hline
+typ obiektu                               & 4                    &  \begin{tabular}[c]{@{}c@{}} Wartość to~liczba naturalna od~1~do~7. \\Zastosowaliśmy typ 1, który oznacza transakcję.\end{tabular}                                                                                            \\ \hline
+hash obiektu                            & 32                    & Hash obiektu, którego detali żądamy                                                                                                      \\ \hline
+\end{tabular}
+\caption{Zawartość wiadomości getdata}
+\label{tab:getdata}
+\end{table}
+
+\subsubsection{Inv}
+Wiadomość inv składa się z pól przedstawionych w tabeli \ref{tab:inv}. Wysłanie tej wiadomości jest równoznaczne z~wysłaniem informacji "posiadam te~bloki/transakcje".
+
+\begin{table}[]
+\centering
+\begin{tabular}{|l|c|c|}
+\hline
+\multicolumn{1}{|c|}{\textbf{nazwa pola}} & \textbf{liczba bajtów} & \textbf{Opis}                                                                                                                \\ \hline
+liczba par typ+hash                               & 1+                     & -                                                                                                                                 \\ \hline
+typ obiektu                               & 4                    &  \begin{tabular}[c]{@{}c@{}} Wartość to~liczba naturalna od~1~do~7. \\Zastosowaliśmy typ 1, który oznacza transakcję.\end{tabular}                                                                                            \\ \hline
+hash obiektu                            & 32                    & Hash obiektu, który posiadamy                                                                                                   \\ \hline
+\end{tabular}
+\caption{Zawartość wiadomości inv}
+\label{tab:inv}
+\end{table}
 
 \subsection{Opis działania pozostałych elementów aplikacji}
 \subsubsection{Ping}
