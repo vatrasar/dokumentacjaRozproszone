@@ -228,7 +228,7 @@ Protokół transmisji danych, zapewniający dostarczenie pakietów. Obsługuje p
 \label{zdj:3}
 \centering
 \includegraphics[width=\textwidth]{2.jpg}
-\caption { Segment TCP, źródło: wikipedia.}
+\caption { Segment TCP, źródło: wilkiepedia.}
 \end{figure}
 
 \subsubsection{UDP}
@@ -237,7 +237,7 @@ Protokół transmisji danych,  dopuszczający pewne straty danych. Przez to ramk
 \label{zdj:4}
 \centering
 \includegraphics[width=\textwidth]{3.jpg}
-\caption { nagłówek UDP, źródło: wikipedia.}
+\caption { nagłówek UDP, źródło: wilkiepedia.}
 \end{figure}
 \subsection{Diagramy sekwencji}
 Przedstawiono następujące dogramy sekwencji:
@@ -271,5 +271,8 @@ Sprawdź za pomocą polecenia ping czy istnieje połączenie, jeśli tak wpisz p
 Zweryfikuj czy jest to polecenie z "gwiazdką", jesli nie najpierw wpisz polecenie polacz.
 \item Nie otrzymuje odpowiedzi na wiadomość version gdy używam UDP!\\
 UDP często \textit{gubi} dane a wiadomość \textit{version} musi dojść w całości żeby otrzymać na nią odpowiedź. Jest to standardowe zachowanie i nie należy się nim przejmować.
+\item getaddr zwraca zawsze tylko jeden adres ip\\
+Za pierwszym razem zawsze zwracany jest tylko jeden adres ip. Gdy ponownie wyśle się getaddr zwracanych jest zwykle 1000 adresów
+
 \end{itemize}
 \end{document}
